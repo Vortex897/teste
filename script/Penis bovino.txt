@@ -726,4 +726,4 @@ enviarScript(`
 - Pinto de Boi ao Molho de Tamarindo
 - Pinto de Boi com Molho de Manga e Pimenta
 - Pinto de Boi com Cuscuz Marroquino
-).then(e => console.log(`Código finalizado, ${e} mensagens enviadas)).catch(console.error
+`).then(e => console.log(`Código finalizado, ${e} mensagens enviadas)).catch(console.error
