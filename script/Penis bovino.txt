@@ -1,0 +1,729 @@
+async function enviarScript(scriptText){
+	const lines = scriptText.split(/[\n\t]+/).map(line => line.trim()).filter(line => line);
+	main = document.querySelector("#main"),
+	textarea = main.querySelector(div[contenteditable="true"])
+	
+	if(!textarea) throw new Error("Não há uma conversa aberta")
+	
+	for(const line of lines){
+		console.log(line)
+	
+		textarea.focus();
+		document.execCommand('insertText', false, line);
+		textarea.dispatchEvent(new Event('change', {bubbles: true}));
+	
+		setTimeout(() => {
+			(main.querySelector([data-testid="send"]) || main.querySelector([data-icon="send"])).click();
+		}, 100);
+		
+		if(lines.indexOf(line) !== lines.length - 1) await new Promise(resolve => setTimeout(resolve, 250));
+	}
+	
+	return lines.length;
+}
+
+enviarScript(`
+- Pinto de Boi com Molho de Abacaxi e Gengibre
+- Pinto de Boi à Moda do Norte com Jambu
+- Pinto de Boi ao Molho de Cachaça e Alho
+- Pinto de Boi com Arroz de Feijão Preto e Couve
+- Pinto de Boi à Modo Oriental com Gergelim
+- Pinto de Boi com Molho de Vinho Tinto e Alho-Poró
+- Pinto de Boi ao Molho de Mostarda e Alcaparras
+- Pinto de Boi com Polenta de Queijo
+- Pinto de Boi ao Molho de Pimenta e Cebola Roxa
+- Pinto de Boi com Arroz de Pesto
+- Pinto de Boi ao Molho de Maçã e Mostarda
+- Pinto de Boi com Farofa de Pequi
+- Pinto de Boi com Arroz de Cebola e Alho
+- Pinto de Boi à Moda da Casa com Purê de Batata
+- Pinto de Boi com Molho de Tomate e Gorgonzola
+- Pinto de Boi ao Molho de Mel e Alcaparras
+- Pinto de Boi com Espaguete ao Molho Carbonara
+- Pinto de Boi com Molho de Cebola e Ervas Finas
+- Pinto de Boi ao Molho de Pimentão e Tomate
+- Pinto de Boi com Arroz de Brócolis e Alho
+- Pinto de Boi à Portuguesa com Cogumelos
+- Pinto de Boi com Molho de Abóbora e Alho-Poró
+- Pinto de Boi ao Molho de Limão e Salsinha
+- Pinto de Boi com Arroz de Milho e Frango
+- Pinto de Boi com Molho de Pimenta e Gengibre
+- Pinto de Boi à Moda do Norte com Tacacá
+- Pinto de Boi com Purê de Batata e Brócolis
+- Pinto de Boi ao Molho de Queijo Cheddar
+- Pinto de Boi com Farofa de Castanha e Frutas Secas
+- Pinto de Boi ao Molho de Cebola e Vinho Rosé
+- Pinto de Boi com Arroz de Abóbora e Queijo
+- Pinto de Boi à Espanhola com Salsa Verde
+- Pinto de Boi com Molho de Gorgonzola e Pinhões
+- Pinto de Boi ao Molho de Limão e Salsa
+- Pinto de Boi com Arroz de Tomate e Espinafre
+- Pinto de Boi com Molho de Mel e Pimenta
+- Pinto de Boi à Brasileira com Feijão Tropeiro
+- Pinto de Boi com Farofa de Bacon e Couve
+- Pinto de Boi ao Molho de Laranja e Vinho Branco
+- Pinto de Boi com Arroz de Feijão e Queijo
+- Pinto de Boi com Molho de Abacaxi e Alecrim
+- Pinto de Boi ao Molho de Tomate e Alcaparras
+- Pinto de Boi com Polenta e Molho de Cogumelos
+- Pinto de Boi à Toscana com Feijão Branco
+- Pinto de Boi ao Molho de Gengibre e Limão
+- Pinto de Boi com Arroz de Couve e Linguiça
+- Pinto de Boi com Molho de Alho e Vinho Tinto
+- Pinto de Boi à Modo de Cozinha Brasileira com Feijão Verde
+- Pinto de Boi com Farofa de Banana e Nozes
+- Pinto de Boi ao Molho de Abóbora e Tomate
+- Pinto de Boi com Arroz de Brócolis e Cogumelos
+- Pinto de Boi à Portuguesa com Frutos do Mar
+- Pinto de Boi com Molho de Limão e Melancia
+- Pinto de Boi ao Molho de Queijo Brie e Alho
+- Pinto de Boi com Arroz de Espinafre e Alho-Poró
+- Pinto de Boi com Farofa de Alho e Ervas
+- Pinto de Boi ao Molho de Tomate e Cebola
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi à La Mexicana com Salsa Picante
+- Pinto de Boi com Molho de Abacaxi e Gengibre
+- Pinto de Boi ao Molho de Vinho e Alcaparras
+- Pinto de Boi com Arroz de Pimentão e Tomate
+- Pinto de Boi à Brasileira com Feijão Preto e Couve
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Laranja e Tomilho
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Maracujá e Gengibre
+- Pinto de Boi à Moda Italiana com Frutos do Mar
+- Pinto de Boi com Purê de Batata e Ervas
+- Pinto de Boi ao Molho de Cebola e Cogumelos
+- Pinto de Boi com Arroz de Tomate e Frango
+- Pinto de Boi com Farofa de Frango e Legumes
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Molho de Abóbora e Cebola
+- Pinto de Boi à Portuguesa com Arroz de Feijão
+- Pinto de Boi com Arroz de Abóbora e Linguiça
+- Pinto de Boi com Molho de Tomate e Ervas Finas
+- Pinto de Boi ao Molho de Cebola e Alho
+- Pinto de Boi com Arroz de Feijão Tropeiro e Couve
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Modo de Cozinha Oriental com Molho Agridoce
+- Pinto de Boi com Farofa de Castanha e Couve
+- Pinto de Boi ao Molho de Limão e Mel
+- Pinto de Boi com Arroz de Tomate e Espinafre
+- Pinto de Boi com Molho de Pimenta e Alcaparras
+- Pinto de Boi à Brasileira com Feijão e Abóbora
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Abacaxi e Gengibre
+- Pinto de Boi com Arroz de Alho e Cebola
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Toscana com Arroz de Frutos do Mar
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Ervas
+- Pinto de Boi com Arroz de Espinafre e Cogumelos
+- Pinto de Boi com Molho de Abóbora e Limão
+- Pinto de Boi à Portuguesa com Batatas e Cogumelos
+- Pinto de Boi com Purê de Batata e Feijão
+- Pinto de Boi ao Molho de Cebola e Bacon
+- Pinto de Boi com Arroz de Brócolis e Alho-Poró
+- Pinto de Boi à Modo de Cozinha Francesa com Molho Béarnaise
+- Pinto de Boi com Molho de Tomate e Queijo
+- Pinto de Boi ao Molho de Abacaxi e Alcaparras
+- Pinto de Boi com Arroz de Couve e Feijão Preto
+- Pinto de Boi com Farofa de Banana e Queijo
+- Pinto de Boi ao Molho de Limão e Vinho Branco
+- Pinto de Boi com Arroz de Abóbora e Frango
+- Pinto de Boi à Moda do Sul com Feijão Tropeiro
+- Pinto de Boi com Molho de Gengibre e Limão
+- Pinto de Boi com Farofa de Alho e Frango
+- Pinto de Boi ao Molho de Tomate e Alho-Poró
+- Pinto de Boi com Arroz de Brócolis e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Feijão e Legumes
+- Pinto de Boi com Purê de Abóbora e Queijo
+- Pinto de Boi ao Molho de Cebola e Gorgonzola
+- Pinto de Boi com Arroz de Espinafre e Alho
+- Pinto de Boi com Molho de Pimenta e Abóbora
+- Pinto de Boi à Moda Brasileira com Feijão Tropeiro e Couve
+- Pinto de Boi com Farofa de Queijo e Bacon
+- Pinto de Boi ao Molho de Limão e Alho-Poró
+- Pinto de Boi com Arroz de Tomate e Queijo
+- Pinto de Boi com Molho de Gorgonzola e Maracujá
+- Pinto de Boi à Modo de Cozinha Mexicana com Molho Picante
+- Pinto de Boi com Farofa de Alho e Frutas Secas
+- Pinto de Boi ao Molho de Abacaxi e Pimentão
+- Pinto de Boi com Arroz de Feijão e Abóbora
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Limão e Ervas Finas
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Maracujá e Cebola
+- Pinto de Boi à Portuguesa com Arroz de Feijão Tropeiro
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Gengibre e Tomate
+- Pinto de Boi com Arroz de Couve e Linguiça
+- Pinto de Boi com Molho de Alho e Maracujá
+- Pinto de Boi à Brasileira com Feijão Preto e Arroz
+- Pinto de Boi com Farofa de Abóbora e Queijo
+- Pinto de Boi ao Molho de Tomate e Limão
+- Pinto de Boi com Arroz de Feijão Tropeiro e Couve
+- Pinto de Boi com Molho de Alho e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Italiana com Queijo
+- Pinto de Boi com Farofa de Banana e Bacon
+- Pinto de Boi ao Molho de Abóbora e Queijo
+- Pinto de Boi com Arroz de Espinafre e Alho
+- Pinto de Boi com Molho de Pimenta e Tomate
+- Pinto de Boi à Portuguesa com Arroz e Feijão Verde
+- Pinto de Boi com Purê de Batata e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Gengibre
+- Pinto de Boi à Moda do Sul com Farofa de Feijão Tropeiro
+- Pinto de Boi com Farofa de Alho e Legumes
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão e Frango
+- Pinto de Boi com Molho de Limão e Pimenta
+- Pinto de Boi à Modo de Cozinha Brasileira com Feijão Tropeiro
+- Pinto de Boi com Farofa de Bacon e Couve
+- Pinto de Boi ao Molho de Abóbora e Limão
+- Pinto de Boi com Arroz de Brócolis e Feijão
+- Pinto de Boi com Molho de Gengibre e Pimentão
+- Pinto de Boi à Brasileira com Feijão e Couve
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Cebola
+- Pinto de Boi com Arroz de Tomate e Alho-Poró
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz de Feijão
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Ervas Finas
+- Pinto de Boi com Arroz de Espinafre e Bacon
+- Pinto de Boi com Molho de Maracujá e Abóbora
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Legumes
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Gengibre
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Modo de Cozinha Brasileira com Farofa de Bacon
+- Pinto de Boi com Farofa de Abóbora e Alho
+- Pinto de Boi ao Molho de Tomate e Gengibre
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Alho e Cebola
+- Pinto de Boi à Portuguesa com Arroz de Feijão e Queijo
+- Pinto de Boi com Purê de Batata e Frango
+- Pinto de Boi ao Molho de Limão e Pimentão
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Maracujá e Alcaparras
+- Pinto de Boi à Brasileira com Feijão Tropeiro e Alho
+- Pinto de Boi com Farofa de Bacon e Abóbora
+- Pinto de Boi ao Molho de Gengibre e Limão
+- Pinto de Boi com Arroz de Couve e Alho
+- Pinto de Boi com Molho de Alho e Tomate
+- Pinto de Boi à Modo de Cozinha Italiana com Farofa
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Limão e Vinho Branco
+- Pinto de Boi com Arroz de Feijão Tropeiro e Frango
+- Pinto de Boi com Molho de Maracujá e Ervas
+- Pinto de Boi à Portuguesa com Farofa de Alho e Couve
+- Pinto de Boi com Farofa de Queijo e Abóbora
+- Pinto de Boi ao Molho de Cebola e Pimentão
+- Pinto de Boi com Arroz de Brócolis e Feijão Preto
+- Pinto de Boi com Molho de Limão e Frutas Secas
+- Pinto de Boi à Brasileira com Feijão Verde e Queijo
+- Pinto de Boi com Purê de Batata e Legumes
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Feijão
+- Pinto de Boi com Molho de Gengibre e Cebola
+- Pinto de Boi à Modo de Cozinha Portuguesa com Queijo
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alho-Poró
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Bacon e Feijão
+- Pinto de Boi com Purê de Batata e Brócolis
+- Pinto de Boi ao Molho de Alho e Tomate
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Pimenta
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Frango
+- Pinto de Boi com Farofa de Bacon e Abóbora
+- Pinto de Boi ao Molho de Cebola e Alho-Poró
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Frango
+- Pinto de Boi à Portuguesa com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Vinho Branco
+- Pinto de Boi com Arroz de Espinafre e Legumes
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Farofa
+- Pinto de Boi com Farofa de Abóbora e Alho-Poró
+- Pinto de Boi ao Molho de Alho e Queijo
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Modo de Cozinha Brasileira com Feijão Tropeiro
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Cebola e Frango
+- Pinto de Boi com Arroz de Couve e Queijo
+- Pinto de Boi com Molho de Gengibre e Cebola
+- Pinto de Boi à Portuguesa com Arroz de Feijão e Abóbora
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Bacon
+- Pinto de Boi à Brasileira com Farofa e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Queijo
+- Pinto de Boi com Farofa de Abóbora e Bacon
+- Pinto de Boi ao Molho de Cebola e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Linguiça
+- Pinto de Boi com Molho de Limão e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Alho e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Cebola e Abóbora
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Bacon
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Limão e Bacon
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Queijo
+- Pinto de Boi com Farofa de Abóbora e Legumes
+- Pinto de Boi ao Molho de Cebola e Queijo
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Brasileira com Farofa de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Gengibre e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Couve
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Frutas Secas
+- Pinto de Boi à Brasileira com Farofa de Bacon e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Queijo
+- Pinto de Boi com Farofa de Abóbora e Bacon
+- Pinto de Boi ao Molho de Cebola e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Linguiça
+- Pinto de Boi com Molho de Limão e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Alho e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Cebola e Abóbora
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Bacon
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Limão e Bacon
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Queijo
+- Pinto de Boi com Farofa de Abóbora e Legumes
+- Pinto de Boi ao Molho de Cebola e Queijo
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Brasileira com Farofa de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Gengibre e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Couve
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Frutas Secas
+- Pinto de Boi à Brasileira com Farofa de Bacon e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Queijo
+- Pinto de Boi com Farofa de Abóbora e Bacon
+- Pinto de Boi ao Molho de Cebola e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Linguiça
+- Pinto de Boi com Molho de Limão e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Alho e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Cebola e Abóbora
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Bacon
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Limão e Bacon
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Queijo
+- Pinto de Boi com Farofa de Abóbora e Legumes
+- Pinto de Boi ao Molho de Cebola e Queijo
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Brasileira com Farofa de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Gengibre e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Couve
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Frutas Secas
+- Pinto de Boi à Brasileira com Farofa de Bacon e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Queijo
+- Pinto de Boi com Farofa de Abóbora e Bacon
+- Pinto de Boi ao Molho de Cebola e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Linguiça
+- Pinto de Boi com Molho de Limão e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Alho e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Cebola e Abóbora
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Bacon
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Limão e Bacon
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Queijo
+- Pinto de Boi com Farofa de Abóbora e Legumes
+- Pinto de Boi ao Molho de Cebola e Queijo
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Brasileira com Farofa de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Gengibre e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Couve
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Frutas Secas
+- Pinto de Boi à Brasileira com Farofa de Bacon e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Queijo
+- Pinto de Boi com Farofa de Abóbora e Bacon
+- Pinto de Boi ao Molho de Cebola e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Linguiça
+- Pinto de Boi com Molho de Limão e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Alho e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Cebola e Abóbora
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Bacon
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Limão e Bacon
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Queijo
+- Pinto de Boi com Farofa de Abóbora e Legumes
+- Pinto de Boi ao Molho de Cebola e Queijo
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Brasileira com Farofa de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Gengibre e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Couve
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Frutas Secas
+- Pinto de Boi à Brasileira com Farofa de Bacon e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi à Portuguesa com Feijão Tropeiro e Queijo
+- Pinto de Boi com Farofa de Abóbora e Bacon
+- Pinto de Boi ao Molho de Cebola e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Linguiça
+- Pinto de Boi com Molho de Limão e Abóbora
+- Pinto de Boi à Brasileira com Farofa de Alho e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Feijão Verde
+- Pinto de Boi com Molho de Limão e Vinho Branco
+- Pinto de Boi à Modo de Cozinha Portuguesa com Arroz
+- Pinto de Boi com Farofa de Bacon e Queijo
+- Pinto de Boi ao Molho de Cebola e Abóbora
+- Pinto de Boi com Arroz de Feijão e Couve
+- Pinto de Boi com Molho de Maracujá e Queijo
+- Pinto de Boi à Brasileira com Feijão e Bacon
+- Pinto de Boi com Purê de Batata e Abóbora
+- Pinto de Boi ao Molho de Alho e Limão
+- Pinto de Boi com Arroz de Brócolis e Frango
+- Pinto de Boi com Molho de Limão e Bacon
+- Pinto de Boi à Modo de Cozinha Italiana com Arroz de Queijo
+- Pinto de Boi com Farofa de Abóbora e Legumes
+- Pinto de Boi ao Molho de Cebola e Queijo
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Limão e Maracujá
+- Pinto de Boi à Brasileira com Farofa de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Bacon
+- Pinto de Boi ao Molho de Alho e Maracujá
+- Pinto de Boi com Arroz de Espinafre e Queijo
+- Pinto de Boi com Molho de Gengibre e Bacon
+- Pinto de Boi à Portuguesa com Arroz de Couve
+- Pinto de Boi com Farofa de Alho e Queijo
+- Pinto de Boi ao Molho de Limão e Alcaparras
+- Pinto de Boi com Arroz de Feijão e Brócolis
+- Pinto de Boi com Molho de Maracujá e Frutas Secas
+- Pinto de Boi à Brasileira com Farofa de Bacon e Couve
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi ao Molho de Alho e Pimenta
+- Pinto de Boi com Arroz de Brócolis e Linguiça
+- Pinto de Boi com Molho de Limão e Queijo
+- Pinto de Boi à Modo de Cozinha Portuguesa com Feijão
+- Pinto de Boi com Farofa de Alho e Bacon
+- Pinto de Boi ao Molho de Cebola e Tomate
+- Pinto de Boi com Arroz de Feijão Tropeiro e Alho
+- Pinto de Boi com Molho de Gengibre e Maracujá
+- Pinto de Boi à Brasileira com Farofa e Feijão
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi ao Molho de Limão e Queijo
+- Pinto de Boi com Arroz de Brócolis e Couve
+- Pinto de Boi com Molho de Maracujá e Pimenta
+- Pinto de Boi com Molho de Cachaça e Limão
+- Pinto de Boi à Mexicana com Guacamole
+- Pinto de Boi ao Molho de Bacon
+- Pinto de Boi com Picles e Maionese
+- Pinto de Boi ao Molho de Pesto
+- Pinto de Boi com Batatas Assadas e Alecrim
+- Pinto de Boi ao Molho de Cebola e Vinho
+- Pinto de Boi com Cogumelos e Creme de Leite
+- Pinto de Boi à Bordelaise
+- Pinto de Boi com Molho de Queijo Azul
+- Pinto de Boi ao Molho de Abacaxi
+- Pinto de Boi com Molho de Manteiga e Limão
+- Pinto de Boi à Moda do Sul
+- Pinto de Boi com Arroz de Brócolis
+- Pinto de Boi ao Molho de Manteiga de Ervas
+- Pinto de Boi com Molho de Limão e Alcaparras
+- Pinto de Boi com Purê de Abóbora
+- Pinto de Boi ao Molho de Alho e Ervas
+- Pinto de Boi com Molho de Iogurte e Dill
+- Pinto de Boi à Toscana
+- Pinto de Boi com Espaguete ao Molho de Tomate
+- Pinto de Boi ao Molho de Pimenta Verde
+- Pinto de Boi com Molho de Vinho do Porto
+- Pinto de Boi com Cebolas e Champignons
+- Pinto de Boi ao Molho de Mostarda e Mel
+- Pinto de Boi com Polenta Cremosa
+- Pinto de Boi ao Molho de Laranja e Alecrim
+- Pinto de Boi com Maçã e Calvados
+- Pinto de Boi com Arroz de Açafrão
+- Pinto de Boi à Caçadora
+- Pinto de Boi com Molho de Limão e Mel
+- Pinto de Boi com Batata-doce e Gengibre
+- Pinto de Boi ao Molho de Pimentão Vermelho
+- Pinto de Boi com Feijão Verde e Alho
+- Pinto de Boi à Provençal com Tomates
+- Pinto de Boi com Molho de Abóbora e Ervas
+- Pinto de Boi ao Molho de Cebola e Vinho Tinto
+- Pinto de Boi com Purê de Cenoura
+- Pinto de Boi com Rúcula e Tomates Secos
+- Pinto de Boi ao Molho de Cebola e Cogumelos
+- Pinto de Boi com Molho de Pimenta e Côco
+- Pinto de Boi com Farofa de Castanha
+- Pinto de Boi com Arroz de Cogumelos
+- Pinto de Boi à Brás
+- Pinto de Boi com Molho de Abacaxi e Gengibre
+- Pinto de Boi com Feijão Preto e Abóbora
+- Pinto de Boi ao Molho de Limão e Alecrim
+- Pinto de Boi com Purê de Batata e Alho
+- Pinto de Boi à Portuguesa com Frutos do Mar
+- Pinto de Boi com Molho de Tomate e Manjericão
+- Pinto de Boi ao Molho de Cebola Caramelizada
+- Pinto de Boi com Espaguete e Molho Alfredo
+- Pinto de Boi com Molho de Cebola e Vinho Branco
+- Pinto de Boi à Moda Mineira com Couve
+- Pinto de Boi com Arroz de Coco
+- Pinto de Boi ao Molho de Gengibre e Mel
+- Pinto de Boi com Batatas e Cebolas Assadas
+- Pinto de Boi com Molho de Tomate e Alho
+- Pinto de Boi ao Molho de Laranja e Mel
+- Pinto de Boi com Arroz de Cenoura
+- Pinto de Boi com Molho de Framboesa e Balsâmico
+- Pinto de Boi à Chinesa com Molho Agridoce
+- Pinto de Boi com Purê de Maçã
+- Pinto de Boi ao Molho de Cachaça e Mostarda
+- Pinto de Boi com Arroz de Espinafre
+- Pinto de Boi com Molho de Abacaxi e Alho
+- Pinto de Boi à Modo de Cozinha Espanhola
+- Pinto de Boi com Molho de Curry e Coco
+- Pinto de Boi com Farofa de Bacon
+- Pinto de Boi ao Molho de Vinho e Cogumelos
+- Pinto de Boi com Arroz de Feijão Tropeiro
+- Pinto de Boi à La Mexicana com Salsa
+- Pinto de Boi com Molho de Framboesa e Balsâmico
+- Pinto de Boi com Purê de Batata e Queijo
+- Pinto de Boi ao Molho de Mostarda e Mel
+- Pinto de Boi com Arroz de Limão e Ervas
+- Pinto de Boi com Molho de Abóbora e Alho
+- Pinto de Boi à Portuguesa com Batatas
+- Pinto de Boi com Arroz de Milho e Queijo
+- Pinto de Boi ao Molho de Laranja e Gengibre
+- Pinto de Boi com Purê de Abóbora e Queijo
+- Pinto de Boi com Arroz de Alho e Cebola
+- Pinto de Boi ao Molho de Tomate e Pimentão
+- Pinto de Boi com Farofa de Frango
+- Pinto de Boi ao Molho de Cogumelos e Vinho Tinto
+- Pinto de Boi com Arroz de Pimentão e Cebola
+- Pinto de Boi à Brasileira com Molho de Café
+- Pinto de Boi com Purê de Batata Doce e Gengibre
+- Pinto de Boi ao Molho de Abacaxi e Limão
+- Pinto de Boi com Arroz de Tomate e Alho
+- Pinto de Boi com Molho de Laranja e Mel
+- Pinto de Boi à Moda Italiana com Ricota
+- Pinto de Boi ao Molho de Gorgonzola e Nozes
+- Pinto de Boi com Arroz de Feijão e Bacon
+- Pinto de Boi com Purê de Cenoura e Alho
+- Pinto de Boi ao Molho de Cebola e Alho-Poró
+- Pinto de Boi com Farofa de Alho e Cebola
+- Pinto de Boi ao Molho de Maracujá e Coentro
+- Pinto de Boi com Arroz de Couve e Feijão
+- Pinto de Boi com Purê de Batata e Cogumelos
+- Pinto de Boi Cozido ao Molho de Ervas
+- Pinto de Boi Assado com Batatas
+- Pinto de Boi à Milanesa
+- Pinto de Boi Grelhado com Molho de Alho e Limão
+- Ensopado de Pinto de Boi com Legumes
+- Pinto de Boi à Parmegiana
+- Pinto de Boi ao Vinho Tinto
+- Churrasco de Pinto de Boi com Farofa e Vinagrete
+- Pinto de Boi ao Molho de Mostarda
+- Pinto de Boi Picante ao Molho de Pimenta
+- Pinto de Boi com Molho Madeira
+- Pinto de Boi Recheado com Queijo e Presunto
+- Salada de Pinto de Boi Desfiado
+- Pinto de Boi com Creme de Milho
+- Pinto de Boi na Manteiga de Alho
+- Pinto de Boi ao Molho de Cogumelos
+- Feijoada de Pinto de Boi
+- Pinto de Boi à Provençal
+- Risoto de Pinto de Boi
+- Pinto de Boi ao Molho de Laranja
+- Pinto de Boi à Cordon Bleu
+- Pinto de Boi ao Curry
+- Pinto de Boi Grelhado com Molho de Mostarda e Mel
+- Sopa de Pinto de Boi com Legumes
+- Pinto de Boi à Moda da Casa
+- Pinto de Boi com Alho-Poró e Batatas
+- Pinto de Boi à Carbonara
+- Pinto de Boi com Feijão Tropeiro
+- Pinto de Boi com Cebola Caramelizada
+- Lasanha de Pinto de Boi
+- Pinto de Boi ao Molho Barbecue
+- Pinto de Boi com Ervas Finas e Limão Siciliano
+- Pinto de Boi ao Molho Shoyu e Gengibre
+- Estrogonofe de Pinto de Boi
+- Pinto de Boi ao Vinho Branco
+- Pinto de Boi com Molho de Hortelã
+- Pinto de Boi com Purê de Batata Doce
+- Pinto de Boi ao Molho de Tomate e Manjericão
+- Pinto de Boi com Farofa de Banana
+- Pinto de Boi no Espeto
+- Pinto de Boi com Pesto de Manjericão
+- Pinto de Boi à Escabeche
+- Pinto de Boi Empanado com Molho Tártaro
+- Fritada de Pinto de Boi com Pimentões
+- Pinto de Boi ao Molho de Gorgonzola
+- Pinto de Boi com Manteiga de Garrafa
+- Pinto de Boi Grelhado com Alecrim
+- Pinto de Boi ao Molho de Tamarindo
+- Pinto de Boi com Molho de Manga e Pimenta
+- Pinto de Boi com Cuscuz Marroquino
+).then(e => console.log(`Código finalizado, ${e} mensagens enviadas)).catch(console.error
