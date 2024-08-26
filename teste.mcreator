@@ -1,0 +1,50 @@
+{
+  "mod_elements": [
+    {
+      "name": "Craftingtable",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "craftingtable",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/teste/block/entity/CraftingtableBlockEntity.java",
+          "src/main/resources/assets/teste/blockstates/craftingtable.json",
+          "src/main/java/net/mcreator/teste/block/CraftingtableBlock.java",
+          "src/main/resources/assets/teste/models/block/craftingtable.json",
+          "src/main/resources/data/teste/loot_tables/blocks/craftingtable.json",
+          "src/main/resources/assets/teste/models/item/craftingtable.json"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "block.teste.craftingtable": "Craftingtable"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "teste",
+    "modName": "teste",
+    "version": "1.0.0",
+    "author": "hendrill_silva, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "modElementsPackage": "net.mcreator.teste"
+  },
+  "mcreatorVersion": 202400232117
+}
